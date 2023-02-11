@@ -18,7 +18,7 @@ Este programa es una aplicación para la gestión de NAPs (Network Access Point)
 
     Clone el repositorio de GitHub
     Instale las dependencias necesarias con el comando pip install -r requirements.txt
-    Ejecute el programa con python NAPs.py
+    Ejecute el programa con python Vagobot_X.py X representa el sistema operativo.
 
 ### Uso
 
