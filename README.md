@@ -1,7 +1,7 @@
 # Vagobot_v1
 ## NAPs Management
 
-Este programa es una aplicación para la gestión de NAPs (Network Access Point) en formato CSV. Permite cargar, visualizar y gestionar información sobre NAPs en una interfaz de línea de comandos.
+Este programa es una aplicación para la gestión de NAPs (Network Access Point) en formato CSV. Permite cargar, visualizar y gestionar información sobre NAPs en una interfaz de línea de comandos. El script simula conexiones o desconexiones del archivo .CSV, la idea principal es mostrar como se veria en un entorno real donde el script pueda obtener información de esos abonados.
 
 ## Funcionalidades
 
