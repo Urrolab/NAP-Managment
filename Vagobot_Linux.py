@@ -1,4 +1,4 @@
-import csv, os, readline
+import csv, os, readline, subprocess
 from prettytable import PrettyTable
 
 def completer(text, state):
@@ -26,13 +26,13 @@ def leer_archivo_csv(archivo):
     return cabecera, contenido
 
 def mostrar_archivo_seleccionado(archivo_seleccionado):
-    cabecera, contenido = leer_archivo_csv(archivo_seleccionado)
-    mostrar_contenido(cabecera, contenido)
+    subprocess.run(["python", "Analizador.py", archivo_seleccionado])
+
+archivo_seleccionado = None
 
 def mostrar_todos_los_naps():
     readline.set_completer(completer)
     readline.parse_and_bind('tab: complete')
-
     archivos = [f for f in os.listdir("Naps") if f.endswith(".csv")]
     print("\033c", end="") # Limpia la consola
     if not archivos:
