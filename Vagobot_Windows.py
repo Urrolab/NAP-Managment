@@ -26,7 +26,7 @@ def mostrar_todos_los_naps():
     archivos = [f for f in os.listdir("Naps") if f.endswith(".csv")]
     print("\033c", end="") # Limpia la consola
     if not archivos:
-        print("Directorio vacio, pulse Enter para n al menu principal")
+        print("Directorio vacio, pulse Escape para volver al menu principal")
         key = msvcrt.getch()
         if key == b'\r':
             mostrar_todos_los_naps()
