@@ -108,6 +108,29 @@ def cargar_nuevo_nap():
             else:
                 print("Opción invalida, por favor ingrese 's' o 'n'.")
 
+def cargar_lista_nap():
+    if os.path.exists("NAP_X.csv"):
+        continuar = input("El CSV debe llamarse NAP_X.csv. ¿Continuar? (s/n)")
+        if continuar.lower() == "s":
+            subprocess.run(["python", "Separador.py"])
+            print("Finalizó la ejecución.")
+            print("Presione Escape para volver al menú anterior.")
+            while True:
+                key = msvcrt.getch()
+                if key == b'\x1b':
+                    mostrar_menu_principal()
+                    return
+        else:
+            return
+    else:
+        print("No se encuentra el archivo NAP_X.csv en el directorio actual.")
+        while True:
+            print("Presione Escape para volver al menú anterior.")
+            key = msvcrt.getch()
+            if key == b'\x1b':
+                mostrar_menu_principal()
+                return
+
 def mostrar_menu_principal():
     os.system("powershell.exe Clear-Host")
     print("\033[1;36m========== Sistema de NAPs Vagobot - Version Windows ==========\033[0m\n")
@@ -118,8 +141,9 @@ def mostrar_menu_principal():
     print("\033[1;33m  \\____/    //  \033[0m")
     print("\033[1;33m     WINDOWS   \033[0m\n")
     print("\033[1;32m1.\033[0m Ver NAPs")
-    print("\033[1;32m2.\033[0m Cargar nuevo NAP a mano")
-    print("\033[1;31m3.\033[0m Salir")
+    print("\033[1;32m2.\033[0m Cargar NAPs por lista")
+    print("\033[1;32m3.\033[0m Cargar nuevo NAP a mano")
+    print("\033[1;31m4.\033[0m Salir")
     print("\033[1;36m=============================================================\033[0m")
 
 def main():
@@ -129,8 +153,10 @@ def main():
         if opcion == "1":
             mostrar_todos_los_naps()
         elif opcion == "2":
-            cargar_nuevo_nap()
+            cargar_lista_nap()
         elif opcion == "3":
+            cargar_nuevo_nap()
+        elif opcion == "4":
             break
         else:
             print("Opcion invalida, seleccione nuevamente")

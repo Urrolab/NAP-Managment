@@ -111,6 +111,28 @@ def cargar_nuevo_nap():
             else:
                 print("Opción inválida, por favor ingrese 's' o 'n'.")
 
+def cargar_lista_nap():
+    if os.path.exists("NAP_X.csv"):
+        continuar = input("El CSV debe llamarse NAP_X.csv. ¿Continuar? (s/n)")
+        if continuar.lower() == "s":
+            subprocess.run(["python", "Separador.py"])
+            print("Finalizó la ejecución.")
+            print("Presione Q para volver al menú anterior.")
+            opcion = input().upper()
+            if opcion == 'Q':
+                mostrar_menu_principal()
+                return
+        else:
+            return
+    else:
+        print("No se encuentra el archivo NAP_X.csv en el directorio actual.")
+        while True:
+            print("Presione Q para volver al menú anterior.")
+            opcion = input().upper()
+            if opcion == 'Q':
+                mostrar_menu_principal()
+                return
+
 def mostrar_menu_principal():
     print("\033c", end="") # Limpiar la pantalla
     print("\033[1;36m========== Sistema de NAPs Vagobot - Versión Linux ==========\033[0m\n")
@@ -121,22 +143,25 @@ def mostrar_menu_principal():
     print("\033[1;33m (|     | ) \033[0m")
     print("\033[1;33m/'\\_   _/`\\\033[0m\n")
     print("\033[1;32m1.\033[0m Ver NAPs")
-    print("\033[1;32m2.\033[0m Cargar nuevo NAP a mano")
-    print("\033[1;31m3.\033[0m Salir")
+    print("\033[1;32m2.\033[0m Cargar NAPs por lista")
+    print("\033[1;32m3.\033[0m Cargar nuevo NAP a mano")
+    print("\033[1;31m4.\033[0m Salir")
     print("\033[1;36m=============================================================\033[0m")
 
 def main():
     while True:
         mostrar_menu_principal()
-        opcion = input("Seleccione una opción: ")
+        opcion = input("Seleccione una opcion: ")
         if opcion == "1":
             mostrar_todos_los_naps()
         elif opcion == "2":
-            cargar_nuevo_nap()
+            cargar_lista_nap()
         elif opcion == "3":
+            cargar_nuevo_nap()
+        elif opcion == "4":
             break
         else:
-            print("Opción inválida, seleccione nuevamente")
-
+            print("Opcion invalida, seleccione nuevamente")
+            
 if __name__ == "__main__":
     main()
