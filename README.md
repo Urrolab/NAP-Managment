@@ -13,6 +13,7 @@ Este programa es una aplicación para la gestión de NAPs (Network Access Point)
 
     Python 3.x
     prettytable
+    termcolor
 
 ## Instalación
 
