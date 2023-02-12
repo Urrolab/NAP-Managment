@@ -65,9 +65,9 @@ def mostrar_todos_los_naps():
 def cargar_nuevo_nap():
     print("\033c", end="")
     nap_name = input("Ingrese el nombre del NAP (ej: NAP 35): ")
-    header = ["Nombre y Apellido", "PPPoE", "Telefono", "Vlan", "ONU", "Puerto", "NAP"]
+    header = ["Nombre y Apellido", "Nro.Cliente" , "Nro. Telefono", "PPPoE" , "Vlan", "ONU", "Puerto" ,"NAP"]
     content = []
-    print("Ingrese Nombre y Apellido;PPPoE;Telefono;Vlan;ONU;Puerto (ctrl + c para terminar): ")
+    print("Ingrese Nombre y Apellido;Nro.Cliente;Nro.Telefono;PPPoE;Vlan;ONU;Puerto (ctrl + z para terminar): ")
     completed = False
     while not completed:
         try:
@@ -75,8 +75,8 @@ def cargar_nuevo_nap():
             if not line:
                 continue
             line = line.split(';')
-            if len(line) != 6:
-                print('Formato inválido, formato correcto: Nombre y Apellido;PPPoE;Telefono;Vlan;ONU;Puerto.')
+            if len(line) != 7:
+                print('Formato invalido, formato correcto: Nombre y Apellido;Nro.Cliente;Nro.Telefono;PPPoE;Vlan;ONU;Puerto.')
                 continue
             line.append(nap_name) # agregar el NAP al final de la lista
             content.append(line)

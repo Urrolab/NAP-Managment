@@ -2,6 +2,7 @@ import sys
 import csv
 import random
 from prettytable import PrettyTable
+from termcolor import colored
 
 def leer_archivo_csv(ruta_archivo):
     with open(ruta_archivo, "r") as archivo:
@@ -13,8 +14,16 @@ def leer_archivo_csv(ruta_archivo):
     return encabezados, datos
 
 def generar_columna_conexion(datos):
+    print("\033c", end="")
+    conexiones = []
     for fila in datos:
-        fila.append(random.choice(["Conectado", "Desconectado"]))
+        estado = random.choice(["Conectado", "Desconectado"])
+        conexiones.append(estado)
+        fila.append(colored(estado, "green" if estado == "Conectado" else "red"))
+    if sum(c == "Desconectado" for c in conexiones) > len(datos) / 2:
+        print(colored("¡CUIDADO! MÁS DE LA MITAD DE LOS ABONADOS ESTÁN SIN CONEXIÓN".center(90), "red"))
+    elif sum(c == "Conectado" for c in conexiones) > len(datos) / 2:
+        print(colored("¡NAP ESTABLE!".center(90), "green"))
     return datos
 
 def crear_tabla(encabezados, datos):
