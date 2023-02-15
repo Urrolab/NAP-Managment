@@ -67,7 +67,7 @@ def cargar_nuevo_nap():
     nap_name = input("Ingrese el nombre del NAP (ej: NAP 35): ")
     header = ["Nombre y Apellido", "Nro.Cliente" , "Nro. Telefono", "PPPoE" , "Vlan", "ONU", "Puerto" ,"NAP"]
     content = []
-    print("Ingrese Nombre y Apellido;Nro.Cliente;Nro.Telefono;PPPoE;Vlan;ONU;Puerto (ctrl + z para terminar): ")
+    print("Ingrese Nombre y Apellido;Nro.Cliente;Nro.Telefono;PPPoE;Vlan;ONU;Puerto (ctrl + c para terminar): ")
     completed = False
     while not completed:
         try:
@@ -116,7 +116,7 @@ def cargar_lista_nap():
         continuar = input("El CSV debe llamarse NAP_X.csv. ¿Continuar? (s/n)")
         if continuar.lower() == "s":
             subprocess.run(["python", "Separador.py"])
-            print("Finalizó la ejecución.")
+            print("")
             print("Presione Q para volver al menú anterior.")
             opcion = input().upper()
             if opcion == 'Q':
@@ -133,6 +133,18 @@ def cargar_lista_nap():
                 mostrar_menu_principal()
                 return
 
+def mostrar_naps_masivos():
+    try:
+        subprocess.run(['python', 'Masivo.py'])
+        print("")
+        print("Presione Q para volver al menú anterior.")
+        opcion = input().upper()
+        if opcion == 'Q':
+            mostrar_menu_principal()
+            return
+    except FileNotFoundError:
+        print("El archivo Masivo.py no se encuentra en la ruta especificada.")
+
 def mostrar_menu_principal():
     print("\033c", end="") # Limpiar la pantalla
     print("\033[1;36m========== Sistema de NAPs Vagobot - Versión Linux ==========\033[0m\n")
@@ -143,9 +155,10 @@ def mostrar_menu_principal():
     print("\033[1;33m (|     | ) \033[0m")
     print("\033[1;33m/'\\_   _/`\\\033[0m\n")
     print("\033[1;32m1.\033[0m Ver NAPs")
-    print("\033[1;32m2.\033[0m Cargar NAPs por lista")
-    print("\033[1;32m3.\033[0m Cargar nuevo NAP a mano")
-    print("\033[1;31m4.\033[0m Salir")
+    print("\033[1;32m2.\033[0m Ver NAPs por VLAN") 
+    print("\033[1;32m3.\033[0m Cargar NAPs por lista")
+    print("\033[1;32m4.\033[0m Cargar nuevo NAP a mano")
+    print("\033[1;31m5.\033[0m Salir")
     print("\033[1;36m=============================================================\033[0m")
 
 def main():
@@ -155,13 +168,15 @@ def main():
         if opcion == "1":
             mostrar_todos_los_naps()
         elif opcion == "2":
-            cargar_lista_nap()
+            mostrar_naps_masivos()
         elif opcion == "3":
-            cargar_nuevo_nap()
+            cargar_lista_nap()
         elif opcion == "4":
+            cargar_nuevo_nap()
+        elif opcion == "5":
             break
         else:
             print("Opcion invalida, seleccione nuevamente")
-            
+
 if __name__ == "__main__":
     main()
