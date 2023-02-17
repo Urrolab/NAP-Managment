@@ -8,6 +8,7 @@ Este programa es una aplicación para la gestión de NAPs (Network Access Point)
     Cargar NAPs nuevos
     Mostrar los NAPs existentes
     Ver el contenido de un NAP específico
+    Verificar conexión de varios NAPS en base a su VLAN
 
 ## Requisitos
 
