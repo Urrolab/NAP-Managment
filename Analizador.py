@@ -27,7 +27,7 @@ def generar_columna_conexion(datos, encabezados):
     if not columna_existe:
         encabezados.append("Conexión")
     if sum(c == "Desconectado" for c in conexiones) > len(datos) / 2:
-        print(colored("¡CUIDADO! MÁS DE LA MITAD DE LOS ABONADOS ESTÁN SIN CONEXIÓN".center(90), "red"))
+        print(colored("¡NAP INESTABLE!".center(90), "red"))
     elif sum(c == "Conectado" for c in conexiones) > len(datos) / 2:
         print(colored("¡NAP ESTABLE!".center(90), "green"))
     return encabezados, datos

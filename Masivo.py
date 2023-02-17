@@ -1,6 +1,7 @@
-import csv
-import os
-import random
+import csv, os, random
+from termcolor import colored
+
+print("\033c", end="")
 
 def obtener_csv_files():
     return [f for f in os.listdir("Naps") if f.endswith('.csv')]
@@ -40,16 +41,31 @@ def calcular_porcentaje_conexion(total_rows, connected_rows, disconnected_rows):
     return connected_percent, disconnected_percent
 
 def imprimir_estado_csv(file, connected_percent, disconnected_percent):
-    if connected_percent > 50:
-        print(f"NAP: {file} Estado: Conectado")
-    elif disconnected_percent > 50:
-        print(f"NAP: {file} Estado: Desconectado")
+    if connected_percent >= 50:
+        print(f"NAP: {colored(file, 'yellow')} Estado: {colored('Estable', 'green')} {connected_percent:.0f}% Usuarios Conectados")
+    elif disconnected_percent >= 50:
+        print(f"NAP: {colored(file, 'yellow')} Estado: {colored('Inestable', 'red')} {disconnected_percent:.0f}% Usuarios Desconectados")
 
 # Obtener una lista de todos los archivos CSV en el directorio "Naps"
 csv_files = obtener_csv_files()
 
-# Solicitar al usuario que ingrese la VLAN
-vlan = input("Ingrese la VLAN: ")
+def obtener_vlans():
+    vlans = set()
+    for file in os.listdir("Naps"):
+        if file.endswith('.csv'):
+            with open(os.path.join("Naps", file), 'r') as f:
+                csv_reader = csv.DictReader(f)
+                for row in csv_reader:
+                    vlans.add(row['Vlan'])
+    return sorted(list(vlans))
+
+vlans = obtener_vlans()
+print("VLANs disponibles: \n")
+for vlan in vlans:
+    print(colored(vlan , 'yellow'))
+print("")
+selected_vlan = input("Ingrese la VLAN: ")
+print("")
 
 # Iterar sobre cada archivo CSV
 for file in csv_files:
@@ -62,6 +78,6 @@ for file in csv_files:
         else:
             fieldnames, data = actualizar_columna_conexion(csv_reader)
 
-        total_rows, connected_rows, disconnected_rows = contar_filas_conexion(vlan, data)
+        total_rows, connected_rows, disconnected_rows = contar_filas_conexion(selected_vlan, data)
         connected_percent, disconnected_percent = calcular_porcentaje_conexion(total_rows, connected_rows, disconnected_rows)
         imprimir_estado_csv(file, connected_percent, disconnected_percent)

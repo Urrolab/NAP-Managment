@@ -1,0 +1,4 @@
+Nombre y Apellido,Nro.Cliente,Nro. Telefono,PPPoE,Vlan,ONU,Puerto,NAP
+USUARIO 1,1,1,user1,2525,1,1,NAP_04_PRUEBA
+USUARIO 2,2,2,user2,2525,2,2,NAP_04_PRUEBA
+USUARIO 3,3,3,user3,2525,3,3,NAP_04_PRUEBA
