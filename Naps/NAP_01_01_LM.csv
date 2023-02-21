@@ -1,15 +1,15 @@
-Nombre y Apellido,Nro.Cliente,Nro. Telefono,PPPoE,Vlan,ONU,Puerto,NAP
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
-USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM
+Nombre y Apellido,Nro.Cliente,Nro. Telefono,PPPoE,Vlan,ONU,Puerto,NAP,Conexión
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Desconectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Desconectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Desconectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Desconectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Conectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Conectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Conectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Conectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Desconectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Desconectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Conectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Conectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Desconectado
+USUARIO 1,1,1,user1,80,1,1,NAP_01_01_LM,Conectado

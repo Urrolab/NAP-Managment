@@ -1,4 +1,4 @@
 Nombre y Apellido,Nro.Cliente,Nro. Telefono,PPPoE,Vlan,ONU,Puerto,NAP,Conexión
-USUARIO 1,1,1,user,2525,1,5,NAP_01_PRUEBA,Conectado
-USUARIO 2,2,2,user2,2525,2,4,NAP_01_PRUEBA,Conectado
+USUARIO 1,1,1,user,2525,1,5,NAP_01_PRUEBA,Desconectado
+USUARIO 2,2,2,user2,2525,2,4,NAP_01_PRUEBA,Desconectado
 USUARIO 3,3,3,user3,2525,3,3,NAP_01_PRUEBA,Conectado
